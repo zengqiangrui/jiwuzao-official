@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			var os = function() {
+				var ua = navigator.userAgent,
+					isWindowsPhone = /(?:Windows Phone)/.test(ua),
+					isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+					isAndroid = /(?:Android)/.test(ua),
+					isFireFox = /(?:Firefox)/.test(ua),
+					isChrome = /(?:Chrome|CriOS)/.test(ua),
+					isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(
+						ua)),
+					isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+					isPc = !isPhone && !isAndroid && !isSymbian;
+				return {
+					isTablet: isTablet,
+					isPhone: isPhone,
+					isAndroid: isAndroid,
+					isPc: isPc
+				};
+			}
+			if (!os().isPc || os().isTablet) {
+				location.href = 'mobile.html';
+			}
+		</script>
+		<meta charset="utf-8" />
+		<title>极物造首页</title>
+		<link rel="stylesheet" href="dist/css/swiper.min.css">
+		<link rel="stylesheet" href="css/normalize.min.css">
+		<link rel="stylesheet" href="css/honeycomb.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css" />
+		<link rel="stylesheet" type="text/css" href="css/carousel.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+		<script src="dist/js/swiper.min.js"></script>
+		<style type="text/css">
+			.live li {
+				font-size: 15px;
+			}
+		</style>
+		<script type="text/javascript">
+			function getScrollTop() {
+				var scrollTop = 0;
+				if (document.documentElement && document.documentElement.scrollTop) {
+					scrollTop = document.documentElement.scrollTop;
+				} else if (document.body) {
+					scrollTop = document.body.scrollTop;
+				}
+				return scrollTop;
+			}
+
+			$(function() {
+				$(".header-a:first").css("opacity", "1")
+				$(window).scroll(function() {
+					console.log(getScrollTop())
+					var doc_top = $(".honeycomb")[0].offsetTop
+					if (getScrollTop() >= doc_top) {
+						$(".header").css("opacity", "1")
+					} else {
+						$(".header").css("opacity", "0.5")
+					}
+				})
+				$(".header-a").click(function() {
+					$(".header-a").animate({
+						"opacity": "0.4"
+					})
+					$(this).animate({
+						"opacity": "1"
+					})
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<div class="contain">
+				<div class="header">
+					<div id="header-navi">
+						<a class="header-a" id="main" href="#app">首页</a>
+						<a class="header-a" id="contact" href="#footer">关于我们</a>
+						<a class="header-a" id="cooperate" href="#carousel">商业合作</a>
+					</div>
+					<a class="head-img">极物造</a>
+					<div id="header-line"></div>
+				</div>
+				<video id="back-intro" loop autoplay muted>
+					<source src="videos/back-video.mp4" type="video/mp4">
+					</source>
+				</video>
+
+				<ul class="honeycomb" lang="es">
+					<li class="honeycomb-cell">
+						<img class="honeycomb-cell__image" src="img/honeycomb/lingwu.jpg">
+						<div class="honeycomb-cell__title">灵物</div>
+					</li>
+					<li class="honeycomb-cell">
+						<img class="honeycomb-cell__image" src="img/honeycomb/jishi.jpg">
+						<div class="honeycomb-cell__title">极食</div>
+					</li>
+					<li class="honeycomb-cell">
+						<img class="honeycomb-cell__image" src="img/honeycomb/fuzhuang.jpg">
+						<div class="honeycomb-cell__title">服装</div>
+					</li>
+					<li class="honeycomb-cell">
+						<img class="honeycomb-cell__image" src="img/honeycomb/shipin.jpg">
+						<div class="honeycomb-cell__title">极饰</div>
+					</li>
+					<li class="honeycomb-cell">
+						<img class="honeycomb-cell__image" alt="箱包" src="img/honeycomb/xiangbao.jpg">
+						<div class="honeycomb-cell__title">箱包</div>
+					</li>
+					<li class="honeycomb-cell">
+						<img class="honeycomb-cell__image" src="img/honeycomb/qiju.jpg">
+						<div class="honeycomb-cell__title">器具</div>
+					</li>
+					<li class="honeycomb-cell">
+						<img class="honeycomb-cell__image" src="img/honeycomb/jili.jpg">
+						<div class="honeycomb-cell__title">极礼</div>
+					</li>
+					<li class="honeycomb-cell honeycomb__placeholder"></li>
+				</ul>
+
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="img/intro1.jpg" width="100%" height="100%">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/intro2.jpeg" width="100%" height="100%">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/intro3.jpg" width="100%" height="100%">
+						</div>
+					</div>
+					<div class="swiper-button-prev swiper-button-white"></div>
+					<div class="swiper-button-next swiper-button-white"></div>
+				</div>
+
+				<div class="carousel" id="carousel">
+					<div class="carousel__control">
+					</div>
+					<div class="carousel__stage">
+						<div class="spinner spinner--left">
+							<div class="spinner__face js-active" data-bg="#27323c">
+								<div class="content" data-type="iceland">
+									<div class="content__left">
+										<h1>入驻0门槛</h1>
+									</div>
+									<div class="content__right">
+										<div class="content__main">
+											<p>不收取任何保证金，成交后按售价收取20%的佣金作为技术服务费，除此之外不再有任何收费项目。</p>
+											<!-- <p>– Carolyn Bain</p> -->
+										</div>
+										<h3 class="content__index">01</h3>
+									</div>
+								</div>
+							</div>
+							<div class="spinner__face" data-bg="#19304a">
+								<div class="content" data-type="china">
+									<div class="content__left">
+										<h1>结算简单
+											<!-- CHINA<br><span>ASIA</span> -->
+										</h1>
+									</div>
+									<div class="content__right">
+										<div class="content__main">
+											<p>结算采用担保交易模式，买卖双方交易成功（买家确认收货且7天无异议）后自动提现。</p>
+											<!-- <p>– Damian Harper</p> -->
+										</div>
+										<h3 class="content__index">02</h3>
+									</div>
+								</div>
+							</div>
+							<div class="spinner__face" data-bg="#2b2533">
+								<div class="content" data-type="usa">
+									<div class="content__left">
+										<h1>推广免费</h1>
+									</div>
+									<div class="content__right">
+										<div class="content__main">
+											<p>合作期间，极物造将动用所有线上线下资源帮助宣传您的品牌与产品，互利互赢。</p>
+											<!-- <p>– Regis St Louis</p> -->
+										</div>
+										<h3 class="content__index">03</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<script src="js/carousel.js"></script>
+				<div class="canvas-div" style="width: 100%;display: flex;align-items: center;justify-content: center;">
+					<canvas id="canvas" style="width: 60%;"></canvas>
+				</div>
+
+				<script src="js/3dtitle.js" type="text/javascript" charset="utf-8"></script>
+				<script type="text/javascript">
+					var mySwiper = new Swiper('.swiper-container', {
+						direction: 'horizontal', // 垂直切换选项
+						loop: true, // 循环模式选项
+						autoplay: true,
+						pagination: {
+							el: '.swiper-pagination',
+						},
+
+						// 如果需要前进后退按钮
+						navigation: {
+							nextEl: '.swiper-button-next',
+							prevEl: '.swiper-button-prev',
+						},
+
+					})
+				</script>
+			</div>
+		</div>
+
+		<footer id="footer" class="footer" style="font-size: 10px;">
+
+			<ul class="live">
+				<li>你，
+				<li>或许是idea满分的设计达人</li>
+				<li>或许是手下如有神的手工艺人</li>
+				<li>或许是细微之处见真的收藏家</li>
+				<li>亲爱的，</li>
+				<li>你就是我们上下求索的那个人！</li>
+				<li>加入极物造</li>
+				<li>一个专注极品，原创，美好事物的平台</li>
+
+			</ul>
+			<ul class="live">
+				<li>原创设计品，包括：vintage、森系、文艺、清新、朋克、唐装、汉服、创意家居、独立设计师、纯手工手作、手工饰品、手工皮具、美食、孤品、古着、收藏品，艺术商品等，品类不限。
+				<li>只要是匠心极物，我们皆可合作。</li>
+				<li>
+					<h3>入驻流程：</h3>
+				</li>
+				<li>登录极物造小程序，申请入驻</li>
+				<li>下载极物造APP，注册成为我们的商家用户</li>
+
+			</ul>
+			<ul class="live">
+				<li>
+					<h3>招商咨询</h3>
+				</li>
+				<li>微信：184352115 </li>
+				<li>邮箱：184352115@qq.com</li>
+				<img src="img/china.jpg" width="100px" height="100px" />
+			</ul>
+		</footer>
+		<div style="width: 100%; text-align: center;">
+			<p style="color: #EEEEEE;font-size: 10px;"><a style="color: #EEEEEE;font-size: 10px;" href="http://www.miitbeian.gov.cn">渝ICP备18017599号
+				</a>©2019 重庆懿妈荟科技发展有限公司 版权所有</p>
+		</div>
+	</body>
+	<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+</html>
